@@ -13,7 +13,7 @@
 			//data: { "cakes": <%=@cakes %>},
 			success:function(data){
 				console.log("success");
-				for(i =0; i <= data.length; i++){
+				for(i =0; i < data.length; i++){
 					document.write(i + ". " + data[i] + "</br>");
 				}
 			}
