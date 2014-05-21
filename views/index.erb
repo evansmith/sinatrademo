@@ -5,19 +5,24 @@
 
 <script>
 	$(document).ready(function() {
+		console.log("start");
 		$.ajax({
 			type: "GET",
 			url: "/cakes.json",
 			dataType: "json",
 			//data: { "cakes": <%=@cakes %>},
 			success:function(data){
-				$("p").html(data);
-				console.log(data);
+				console.log("success");
+				for(i =0; i <= data.length; i++){
+					document.write(i + ". " + data[i] + "</br>");
+				}
 			}
 		});
 	});
 	console.log("something");
 </script>
+
+
 
 
 

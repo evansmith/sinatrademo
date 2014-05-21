@@ -15,8 +15,9 @@ get '/cakes.json' do
 		 @cakes.push("#{line}")
 
 	end
-	json(@cakes)
-	puts @cakes
-	return @cakes
+	cakes_json= json(@cakes)
+	puts cakes_json
+	return cakes_json
+
 end
 
