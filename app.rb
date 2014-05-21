@@ -6,24 +6,17 @@ require 'erb'
 
 
 get '/' do
-	#line_num = 0
-	#cake_string = "<ol>"
+	erb :index 
+end
+
+get '/cakes.json' do
 	@cakes = []
 	File.open("cake.list").readlines.each do |line|
-		 #cake_string = cake_string+"<li>   #{line}  </li>"
-		 #{}"#{line_num +=1}. #{line}" 
 		 @cakes.push("#{line}")
 
 	end
-	#@cakes.to_json
-	#json(@cakes, :encoder => :to_json, :content_type => :js)
+	json(@cakes)
 	puts @cakes
-	
-	#cake_string = cake_string + "</ol>"
-	erb :index 
-	#return @cakes
-	#return cake_string
+	return @cakes
 end
-
-
 
