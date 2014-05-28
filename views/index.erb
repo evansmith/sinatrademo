@@ -5,7 +5,7 @@
 
 <script type = "text/javascript" src ="http://code.jquery.com/jquery-2.1.1.js"> </script>
 
-<script>
+<!--script>
 	$(document).ready(function() {
 		console.log("start");
 		$.ajax({
@@ -23,19 +23,24 @@
 	});
 	console.log("something");
 </script>
+-->
+
+<% @cakes.each do |t| %>
+ 	<h2><%= t.id%>. <%= t.cake %></h2>
+ <% end %>
 
 
 
 
 
-
-<script>
+<!--script>
 	//var data = <%=@cakes.to_json %>
 	//console.log(data[0]);
 	//for(i = 0; i < data.length; i++){
 	//	document.write(i + ". "+  data[i] + "</br>");
 	//}
 </script>
+-->
 
 
 

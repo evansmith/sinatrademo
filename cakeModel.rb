@@ -2,12 +2,13 @@ require 'rubygems'
 require 'sinatra'
 require 'data_mapper' 
 
+
 #Displays Logs
 DataMapper::Logger.new($stdout, :debug)
 
 #In memory Sqlite3 connection:
-#Not sure if path is full enough
-DataMapper.setup(:default, 'sqlite:://cakesDB.db')
+
+DataMapper.setup(:default, 'sqlite:///Users/evansmith/sinatrademo/cakesDB.db')
 
 #This is where I created a basic Cake class. 
 class Cake
@@ -17,10 +18,14 @@ class Cake
 	property :cake, String
 end
 
-DataMapper.auto_upgrade
+DataMapper.finalize
+
+DataMapper.auto_migrate!
+
 
 
 #Thoughts of how to fill cake database
+
 File.open("cake.list").readlines.each do |line|
 		 @cake = Cake.create(
 		 	:cake => "#{line}"
@@ -28,4 +33,4 @@ File.open("cake.list").readlines.each do |line|
 
 	end
 
-puts @cake
+#puts @cake
